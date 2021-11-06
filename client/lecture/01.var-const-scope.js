@@ -36,7 +36,9 @@ function getNode(selector) {
 
 // 함수 (표현)식
 const sum = function (a, b) {
+  console.log(a + b);
   return a + b;
+  // return undefined;
 };
 
 // 화살표 함수 식
@@ -44,3 +46,17 @@ const multiply = (a) => a * a;
 
 // DOM Node (Element) Object
 const bodyNode = getNode('body');
+
+const setAttr = (node, prop, value) => {
+  if (node && node.nodeType === document.ELEMENT_NODE) {
+    node.setAttribute(prop, value);
+    // return undefined;
+  }
+};
+
+const getAttr = (node, prop) => {
+  if (node && node.nodeType === document.ELEMENT_NODE) {
+    return node.getAttribute(prop);
+    // return undefined;
+  }
+};
