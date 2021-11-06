@@ -4,5 +4,12 @@
   "version": "0.0.1",
   "private": true,
   "author": "yamoo9 <yamoo9@euid.dev>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "live-server --open=client --port=3000"
+  }
 }
