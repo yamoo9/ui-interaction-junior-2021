@@ -85,14 +85,31 @@ isOdd(value) ?
 // - "나 빼고 원샷"
 
 function displayPanerty(value) {
-  switch(value) {
-    case 1: return "1잔 원샷";
+  switch(Number(value)) {
+  // switch(+value) {
+    case 1:  
+      return "1잔 원샷";
     case 2: return "지목 원샷";
     case 3: return "여성 원샷";
     case 4: return "남성 원샷";
     case 5: return "다 같이 원샷";
     case 6: return "나 빼고 원샷";
+    default:
+      throwError('6을 초과하는 혹은 1 미만의 숫자가 전달되었습니다.');
   }
+
+  // return 멀티 조건(3항식 활용)에 따라 값을 반환;
+  // return value === 1 ?
+  //   "1잔 원샷" : 
+  //   value === 2 ?
+  //     "지목 원샷" :
+  //     value === 3 ?
+  //       "여성 원샷" :
+  //     value === 4 ?
+  //       "남성 원샷" :
+  //     value === 5 ?
+  //       "다 같이 원샷" :
+  //       "나 빼고 원샷";
 }
 
 
@@ -100,4 +117,7 @@ function displayPanerty(value) {
 // 앞서 작성한 코드에서 `문`을 `식`으로 변경 가능한 부분을 찾아 수정해봅니다.
 
 
-// 벌칙 카드에서 처리 가능하지 않은 값이 전달될 경우, 오류를 출력하는 구문을 작성해봅니다.
+// 페널티 표시 함수에서 처리 가능하지 않은 값이 전달될 경우, 오류를 출력하는 구문을 작성해봅니다.
+// displayPanerty(6);
+// displayPanerty(-10);
+// displayPanerty(12);
