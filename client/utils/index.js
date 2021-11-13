@@ -76,6 +76,18 @@ const $ = getNode;
 // - setAttr()
 // - attr()
 
+function getAttr(node, attrName) {
+  return node.getAttribute(attrName);
+}
+
+function setAttr(node, attrName, value) {
+  node.setAttribute(attrName, value);
+}
+
+function attr(node, attrName, value) {
+  return !value ? getAttr(node, attrName) : setAttr(node, attrName, value);
+}
+
 // - getData()
 // - setData()
 // - data()
