@@ -123,9 +123,11 @@ function attr(node, attrName, value) {
 function getData(node, dataName) {
   return getAttr(node, `data-${dataName}`);
 }
+
 function setData(node, dataName, value) {
   setAttr(node, `data-${dataName}`, value);
 }
+
 function data(node, dataName, value) {
   return attr(node, `data-${dataName}`, value);
 }
@@ -162,6 +164,50 @@ function css(node, styleName, value, pseudoElement = null) {
 // - removeClass()
 // - hasClass()
 // - toggleClass()
+// - radioClass(nodeList, index, activeClassName)
+
+// classList API
+function addClass(node, ...classNames) {
+  if (isElementNode(node)) {
+    node.classList.add(...classNames);
+  } else {
+    throwError('...');
+  }
+}
+function removeClass(node, ...classNames) {
+  if (isElementNode(node)) {
+    if (classNames.length === 0) {
+      // 전달된 classNames 배열의 아이템 개수가 0이면
+      // class 속성 값을 비우거나 또는 class 속성을 제거
+      // DOM0 API
+      // node.className = '';
+      node.removeAttribute('class');
+    } else {
+      // 그렇지 않으면
+      node.classList.remove(...classNames);
+    }
+  } else {
+    throwError('...');
+  }
+}
+
+function hasClass(node, className) {
+  if (isElementNode(node)) {
+    return node.classList.contains(className);
+  } else {
+    throwError('...');
+  }
+}
+
+function toggleClass(node, className) {
+  if (isElementNode(node)) {
+    hasClass(node, className)
+      ? removeClass(node, className)
+      : addClass(node, className);
+  } else {
+    throwError('...');
+  }
+}
 
 /* DOM 이벤트 유틸리티 -------------------------------------------------------------- */
 
