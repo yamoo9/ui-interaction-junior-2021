@@ -2,31 +2,29 @@ function main() {
   const headlineNode = $('h1');
   attr(headlineNode, 'tabindex', '0');
 
-  const clickOff = on(headlineNode, 'click', (e) => {
-    console.log('clicked headline');
-  });
-
-  // window.setTimeout(() => off(headlineNode, 'click', handleClick), 3000);
-  window.setTimeout(() => {
-    console.log('remove listener');
-    clickOff();
-  }, 1000);
-
-  // const handleClick = (e) => {
-  //   console.log('clicked headline');
-  // };
-
-  // headlineNode.addEventListener('click', handleClick, false);
-
-  // window.setTimeout(() => {
-  //   console.log('remove event listener');
-  //   headlineNode.removeEventListener('click', handleClick, false);
-  // }, 10000);
-
-  // once(headlineNode, 'click', (e) => {
-  //   console.log(e);
+  // const clickOff = on(headlineNode, 'click', (e) => {
   //   console.log('clicked headline');
   // });
+
+  // window.setTimeout(() => {
+  //   console.log('remove listener');
+  //   clickOff();
+  // }, 1000);
+
+  // think: 작성할 API를 어떻게 사용할까?
+  const allOff = on(headlineNode, {
+    click(e) {
+      console.log('clicked');
+    },
+    dblclick(e) {
+      console.log('dobule cliced');
+    },
+    mouseenter(e) {
+      console.log('entered');
+    },
+  });
+
+  // allOff();
 }
 
 window.addEventListener('DOMContentLoaded', main);
