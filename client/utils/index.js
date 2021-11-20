@@ -217,6 +217,38 @@ function toggleClass(node, className) {
 // - bind() → unbind()
 // - bindAll() → unbindAll()
 
+// function on(node, eventType, eventListener, eventOptions = false) {
+//   if (isElementNode(node)) {
+//     node.addEventListener(eventType, eventListener, eventOptions);
+//   } else {
+//     throwError('...');
+//   }
+// }
+
+function on(node, eventType, eventListener, eventOptions = false) {
+  if (isElementNode(node)) {
+    node.addEventListener(eventType, eventListener, eventOptions);
+    // return undefined
+    return function off() {
+      node.removeEventListener(eventType, eventListener, eventOptions);
+    };
+  } else {
+    throwError('...');
+  }
+}
+
+function off(node, eventType, eventListener, eventOptions = false) {
+  if (isElementNode(node)) {
+    node.removeEventListener(eventType, eventListener, eventOptions);
+  } else {
+    throwError('...');
+  }
+}
+
+function once(node, eventType, eventListener) {
+  on(node, eventType, eventListener, { once: true });
+}
+
 /* 테스트 유틸리티 ------------------------------------------------------------------ */
 
 // - expect(received)
