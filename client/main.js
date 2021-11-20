@@ -12,7 +12,7 @@ function main() {
   // }, 1000);
 
   // think: 작성할 API를 어떻게 사용할까?
-  const allOff = on(headlineNode, {
+  const allEventOff = on(headlineNode, {
     click(e) {
       console.log('clicked');
     },
@@ -24,7 +24,7 @@ function main() {
     },
   });
 
-  // allOff();
+  allEventOff('dblclick');
 }
 
 window.addEventListener('DOMContentLoaded', main);

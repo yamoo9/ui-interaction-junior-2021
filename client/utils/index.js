@@ -214,8 +214,6 @@ function toggleClass(node, className) {
 // - on()
 // - off()
 // - once()
-// - bind() → unbind()
-// - bindAll() → unbindAll()
 
 // function on(node, eventType, eventListener, eventOptions = false) {
 //   if (isElementNode(node)) {
@@ -258,14 +256,24 @@ function on(node, eventType, eventListener, eventOptions = false) {
         }
       }
       // 반환되는 함수는 모든 연결된 이벤트 타입을 해제할 수 있어야 한다.
-      return () => {
+      return (willRemoveEventType) => {
         // 객체 순환
         // for - in
         // Object.entries
         Object.entries(memoEventTypeAndListeners).forEach(
           ([type, listener]) => {
-            console.log(`remove event type: ${type}`);
-            node.removeEventListener(type, listener, eventOptions);
+            if (!willRemoveEventType) {
+              console.log(`remove event type: ${type}`);
+              node.removeEventListener(type, listener, eventOptions);
+            }
+            if (willRemoveEventType === type) {
+              console.log(`remove event type: ${type}`);
+              node.removeEventListener(
+                willRemoveEventType,
+                listener,
+                eventOptions
+              );
+            }
           }
         );
       };

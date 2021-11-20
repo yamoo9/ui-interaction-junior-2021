@@ -9,7 +9,7 @@
     "live-server": "^1.2.1"
   },
   "scripts": {
-    "start": "npm run serve",
-    "serve": "live-server --open=client --port=3000"
+    "start": "OPEN=/client npm run serve",
+    "serve": "PORT=4000 node server/index"
   }
 }
