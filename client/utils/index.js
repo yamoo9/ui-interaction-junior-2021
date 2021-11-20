@@ -130,14 +130,38 @@ function data(node, dataName, value) {
   return attr(node, `data-${dataName}`, value);
 }
 
+// - setStyle()
+// - getStyle()
+// - css()
+function setStyle(node, styleName, value) {
+  if (isElementNode(node)) {
+    // node.style.color, node.style.backgroundColor
+    // node.style['color'], node.style['backgroundColor']
+    node.style[styleName] = value;
+  } else {
+    throwError('...');
+  }
+}
+
+function getStyle(node, styleName, pseudoElement = null) {
+  if (isElementNode(node)) {
+    // return node.style[styleName];
+    return window.getComputedStyle(node, pseudoElement)[styleName];
+  } else {
+    throwError('...');
+  }
+}
+
+function css(node, styleName, value, pseudoElement = null) {
+  return !value
+    ? getStyle(node, styleName, pseudoElement)
+    : setStyle(node, styleName, value);
+}
+
 // - addClass()
 // - removeClass()
 // - hasClass()
 // - toggleClass()
-
-// - getStyle()
-// - setStyle()
-// - css()
 
 /* DOM 이벤트 유틸리티 -------------------------------------------------------------- */
 
