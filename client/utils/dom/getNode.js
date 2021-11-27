@@ -1,3 +1,5 @@
+import { makeArray } from '../types/index.js';
+
 export function getNodeList(selector, context = document) {
   return makeArray(context.querySelectorAll(selector));
 }

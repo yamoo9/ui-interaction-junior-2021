@@ -1,3 +1,5 @@
+import { isElementNode, isString } from '../types/index.js';
+
 function getAttr(node, attrName) {
   if (isElementNode(node)) {
     return node.getAttribute(attrName);

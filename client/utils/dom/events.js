@@ -1,3 +1,5 @@
+import { isElementNode, isString, isObject } from '../types/index.js';
+
 export function on(node, eventType, eventListener, eventOptions = false) {
   if (isElementNode(node)) {
     if (isString(eventType)) {
