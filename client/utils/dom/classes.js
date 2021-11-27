@@ -1,3 +1,5 @@
+import { isElementNode } from '../types/index.js';
+
 export function addClass(node, ...classNames) {
   if (isElementNode(node)) {
     node.classList.add(...classNames);

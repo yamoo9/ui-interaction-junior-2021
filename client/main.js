@@ -31,3 +31,4 @@
 // });
 
 // import './__tests__/index.js';
+import './__tests__/markup.js';
