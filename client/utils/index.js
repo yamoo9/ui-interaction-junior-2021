@@ -1,13 +1,5 @@
 /* JavaScript Utilities (Custom Functions) */
 
-const getRandomCount = (min = 0, max = 10) => {
-  return Math.floor(Math.random() * (max - min) + min);
-};
-
-const throwError = (message) => {
-  throw new Error(message);
-};
-
 /* 데이터 타입 체크 유틸리티 ----------------------------------------------------------- */
 
 // - isUndefined()
@@ -71,7 +63,7 @@ function getNode(selector, context = document) {
 
 // 별칭(alias) 함수
 const $$ = getNodeList;
-const $ = getNode;
+export const $ = getNode;
 
 // - getAttr()
 // - setAttr()
@@ -113,7 +105,7 @@ function setAttr(node, attrName, value) {
   }
 }
 
-function attr(node, attrName, value) {
+export function attr(node, attrName, value) {
   return !value ? getAttr(node, attrName) : setAttr(node, attrName, value);
 }
 
@@ -223,7 +215,7 @@ function toggleClass(node, className) {
 //   }
 // }
 
-function on(node, eventType, eventListener, eventOptions = false) {
+export function on(node, eventType, eventListener, eventOptions = false) {
   if (isElementNode(node)) {
     if (isString(eventType)) {
       console.log('eventType is string');
