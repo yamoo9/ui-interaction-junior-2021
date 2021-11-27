@@ -1,0 +1,23 @@
+@import "./normalize.css";
+
+:root {
+  overflow-y: visible;
+  font-size: 10px;
+}
+
+a img {
+  vertical-align: middle;
+}
+
+abbr[title] {
+  cursor: help;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
