@@ -1,5 +1,4 @@
-import { test, expect } from '../utils/tests/index.js';
-import { camelCase } from '../utils/transforms/index.js';
+import { test, expect, camelCase } from '../utils/index.js';
 
 test(`camelCase('simple is best') → 'simpleIsBest'`, () => {
   expect(camelCase('simple is best')).toBe('simpleIsBest');
