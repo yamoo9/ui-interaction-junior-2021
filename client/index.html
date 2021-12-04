@@ -4,13 +4,15 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>테스트 주도 개발 및 모듈 프로그래밍의 필요성</title>
+  <title>Babel JavaScript 컴파일러</title>
   <link rel="stylesheet" href="./css/main.css" />
-  <!-- 종속(의존)성 관리의 어려움 -->
-  <!-- <script src="/client/utils/index.js"></script> -->
-  <!-- 웹의 가장 큰 강점: 보편성(하위 호환) -->
-  <!-- 모듈 프로그래밍 -->
-  <script type="module" src="/client/main.js"></script>
+  <!-- CDN: Babel 독립 실행형 프로그램 -->
+  <script src="//unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Babel Polyfill (구멍만 기술을 매꾸는 대체 수단) -->
+  <!-- <script src="//unpkg.com/@babel/polyfill/dist/polyfill.min.js"></script> -->
+  <!-- core.js, regenerator-runtime -->
+  <script src="//unpkg.com/core-js-bundle/index.js"></script>
+  <script src="//unpkg.com/regenerator-runtime/runtime.js"></script>
 </head>
 <body>
   
@@ -18,5 +20,10 @@
     <h1 class="app__headline">ECMAScript Modules</h1>
   </div>
 
+  <script type="text/babel">
+    const appNode = document.getElementById('app');
+    appNode.setAttribute('lang', 'en-GB');
+  </script>
+  
 </body>
 </html>
