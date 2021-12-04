@@ -1,24 +1,29 @@
+import { isElementNode, throwError } from "../index.js"
+
 function setStyle(node, styleName, value) {
   if (isElementNode(node)) {
     // node.style.color, node.style.backgroundColor
     // node.style['color'], node.style['backgroundColor']
-    node.style[styleName] = value;
+    node.style[styleName] = value
   } else {
-    throwError('...');
+    throwError('...')
   }
 }
 
 function getStyle(node, styleName, pseudoElement = null) {
-  if (isElementNode(node)) {
-    // return node.style[styleName];
-    return window.getComputedStyle(node, pseudoElement)[styleName];
+  if (
+    
+    
+    isElementNode(node)) {
+    // return node.style[styleName]
+    return window.getComputedStyle(node, pseudoElement)[styleName]
   } else {
-    throwError('...');
+    throwError('...')
   }
 }
 
 export function css(node, styleName, value, pseudoElement = null) {
   return !value
     ? getStyle(node, styleName, pseudoElement)
-    : setStyle(node, styleName, value);
+    : setStyle(node, styleName, value)
 }

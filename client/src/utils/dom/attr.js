@@ -1,4 +1,4 @@
-import { isElementNode, isString } from '../types/index.js';
+import { isElementNode, isString, throwError } from '../types/index.js';
 
 function getAttr(node, attrName) {
   if (isElementNode(node)) {

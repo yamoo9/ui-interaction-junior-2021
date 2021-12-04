@@ -6,13 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Babel JavaScript 컴파일러</title>
   <link rel="stylesheet" href="./css/main.css" />
-  <!-- CDN: Babel 독립 실행형 프로그램 -->
-  <script src="//unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- Babel Polyfill (구멍만 기술을 매꾸는 대체 수단) -->
-  <!-- <script src="//unpkg.com/@babel/polyfill/dist/polyfill.min.js"></script> -->
-  <!-- core.js, regenerator-runtime -->
-  <script src="//unpkg.com/core-js-bundle/index.js"></script>
-  <script src="//unpkg.com/regenerator-runtime/runtime.js"></script>
+  <script type="module" src="./es5/index.js"></script>
 </head>
 <body>
   
@@ -20,10 +14,5 @@
     <h1 class="app__headline">ECMAScript Modules</h1>
   </div>
 
-  <script type="text/babel">
-    const appNode = document.getElementById('app');
-    appNode.setAttribute('lang', 'en-GB');
-  </script>
-  
 </body>
 </html>

@@ -1,4 +1,4 @@
-import { isElementNode } from '../types/index.js';
+import { isElementNode, throwError } from '../types/index.js';
 
 export function addClass(node, ...classNames) {
   if (isElementNode(node)) {
