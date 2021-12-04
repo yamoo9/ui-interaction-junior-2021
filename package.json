@@ -24,7 +24,7 @@
     "lint": "eslint ./client ./server --ignore-path .gitignore",
     "watch:compile": "npm run compile -- --watch",
     "clear": "rimraf -rf ./client/dist",
-    "test": "jest",
+    "test": "jest ./client/temp",
     "watch:test": "npm test -- --watchAll"
   }
 }

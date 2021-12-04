@@ -7,8 +7,8 @@ class EuidApp extends HTMLElement {
 
   // 문서에 연결 (탄생)
   connectedCallback() {
-    console.log('<euid-app> 요소가 문서에 추가');
     if (!this.rendered) {
+      this.attachShadow({ mode: 'open' });
       this.render();
       this.rendered = true;
     }
@@ -17,20 +17,20 @@ class EuidApp extends HTMLElement {
   render() {
     console.log(this); // this 커스텀 요소 (클래스로부터 생성된 객체)
 
-    this.innerHTML = /* html */ `
-            <style>
-              .app {
-                color: red;
-              }
-            </style>
-            <div class="app" lang="en">
-              <h1 class="app-headline">Web Component</h1>  
-              <ul>
-                <li>custom element</li>
-                <li>shadow dom</li>
-              </ul>
-            </div>
-          `;
+    this.shadowRoot.innerHTML = /* html */ `
+      <style>
+        .app {
+          color: red;
+        }
+      </style>
+      <div class="app" lang="en">
+        <h1 class="app-headline">Web Component</h1>  
+        <ul>
+          <li>custom element</li>
+          <li>shadow dom</li>
+        </ul>
+      </div>
+    `;
   }
 
   static get observedAttributes() {
